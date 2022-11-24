@@ -145,31 +145,30 @@
 /// Задача 28: Найти произведение всех элементов массива целых чисел, меньших заданного числа. Размерность массива – 10.
 /// Заполнение массива осуществить случайными числами от 50 до 100.
 
-int[] arr = array(10);
-Console.WriteLine($"Массив [{String.Join(", ", arr)}]");
+int[] arr= array(10);
+Console.WriteLine($"Массив [{String.Join(", ",arr)}]");
 
 Console.Write("Введите число: ");
 int Num = int.Parse(Console.ReadLine()!);
 Console.WriteLine($"Произведение элементов меньше {Num} следующее {arrayPr(arr, Num)}");
 
-int[] array(int number)
-{  // Заполнение массива
-    int[] array1 = new int[number];
-    for (int i = 0; i < array1.Length; i++)
-    {
-        array1[i] = new Random().Next(50, 101);
+int[] array(int number){  // Заполнение массива
+    int[] array1= new int[number];
+     for(int i=0; i<array1.Length; i++)
+     {
+        array1[i] = new Random().Next(50,101);
     }
     return array1;
 }
 int arrayPr(int[] array, int number)
 {  // Произведение элементов
-    int Proizv = 1;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] < number)
+    int Proizv=1;
+     for(int i=0; i<array.Length; i++)
+     {
+        if (array[i]<number)
         {
-            Proizv = Proizv * array[i];
+            Proizv=Proizv*array[i];
         }
-    }
+       }
     return Proizv;
 }
