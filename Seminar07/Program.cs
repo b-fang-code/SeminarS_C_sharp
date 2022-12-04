@@ -249,22 +249,33 @@ void PrintArray(int[,] array)
     }
 }
 
-void SortArray(int[,] array)
+int[,] SortArray(int[,] array)
 {
-    for (int j = 1; j < array.GetLength(1); j += 2)
+    int temp = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        for (int i = 0; i < array.GetLength(0) - 1; i++)
+        if (j % 2 != 0)
         {
-            if (array[i, j] > array[i + 1, j])
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                int temp = array[i, j];
-                array[i, j] = array[i + 1, j];
-                array[i + 1, j] = temp;
-            }
-        }
+                for (int k = i + 1; k < array.GetLength(0); k++)
+                {
+                    if (array[k, j] < array[i, j])
+                    {
+                        temp = array[k, j];
+                        array[k, j] = array[i, j];
+                        array[i, j] = temp;
 
+                    }
+                }
+            }
+
+        }
     }
+    return array;
 }
+
+
 //////////////////////////////// 2 метод
 // void SortArray(int[,] array)
 // {
