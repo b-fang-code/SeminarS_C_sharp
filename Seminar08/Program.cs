@@ -142,7 +142,7 @@ int columns = int.Parse(Console.ReadLine()!);
 int[,] firstArray = FillArray(rows, columns, 0, 10);
 PrintArray(firstArray);
 Console.WriteLine("===========================================");
-int [,] thirdArray = ArrayDell(firstArray);
+int[,] thirdArray = ArrayDell(firstArray);
 PrintArray(thirdArray);
 
 
@@ -171,33 +171,38 @@ void PrintArray(int[,] array)
     }
 }
 
-int[,] ArrayDell(int[,] array){
-    int numbeMin = array[0,0];
-    int num1=0 , num2 =0;
+int[,] ArrayDell(int[,] array)
+{
+    int numbeMin = array[0, 0];
+    int num1 = 0, num2 = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++){
-            if (numbeMin>array[i,j])
-            { 
-                numbeMin=array[i,j];
-                num1=i ;
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (numbeMin > array[i, j])
+            {
+                numbeMin = array[i, j];
+                num1 = i;
                 num2 = j;
             }
         }
     }
-    int [,] array2 = new int[array.GetLength(0)-1,array.GetLength(1)-1];
-    for (int i = 0 , x = 0 ; i < array.GetLength(0); x++, i++)
+    int[,] array2 = new int[array.GetLength(0) - 1, array.GetLength(1) - 1];
+    for (int i = 0, x = 0; i < array.GetLength(0); x++, i++)
     {
-        if ( i== num1) {
+        if (i == num1)
+        {
             x--;
             continue;
         }
-        for (int j = 0 , y = 0; j < array.GetLength(1); y++, j++){
-            if ( j== num2) {
-            y--;
-            continue;
+        for (int j = 0, y = 0; j < array.GetLength(1); y++, j++)
+        {
+            if (j == num2)
+            {
+                y--;
+                continue;
             }
-            array2[x,y]=array[i,j];
+            array2[x, y] = array[i, j];
         }
     }
     return array2;
